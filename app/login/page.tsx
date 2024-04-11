@@ -23,7 +23,7 @@ import {
 } from '@mantine/core';
 import { IconAlertTriangle, IconCheck } from '@tabler/icons-react';
 import Link from 'next/link';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import classes from './AuthenticationTitle.module.css';
 import firebase, { auth } from '../../firebase';
@@ -43,6 +43,7 @@ export default function AuthenticationPage() {
         validate: {
             email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
             password: (val) => (val.length <= 6 ? 'Password should include at least 6 characters' : null),
+            name: (val) => (val.length < 2 ? 'Username should have at least 2 characters' : null),
         },
     });
     const router = useRouter();
@@ -66,7 +67,13 @@ export default function AuthenticationPage() {
             }
         } else {
             try {
-                await createUserWithEmailAndPassword(auth, form.values.email, form.values.password);
+                const result = await createUserWithEmailAndPassword(auth,
+                    form.values.email,
+                    form.values.password
+                );
+                await updateProfile(result.user, {
+                    displayName: form.values.name,
+                });
                 // Perform additional actions after successful registration
                 setError(null);
                 setShowRegisterNotification(true);
@@ -121,6 +128,7 @@ export default function AuthenticationPage() {
                               placeholder="Your name"
                               value={form.values.name}
                               onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
+                              error={form.errors.password && 'Username should have at least 2 characters'}
                               radius="md"
                             />
                         )}
