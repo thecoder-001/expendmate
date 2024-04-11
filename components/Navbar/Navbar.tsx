@@ -13,13 +13,14 @@ import {
     IconWallet,
 } from '@tabler/icons-react';
 import classes from './NavbarSimple.module.css';
+import { UserButton } from "@/components/UserButton/UserButton";
 
 const data = [
-    { link: '', label: 'Notifications', icon: IconBellRinging },
+    // { link: '', label: 'Notifications', icon: IconBellRinging },
     { link: '', label: 'Dashboard', icon: IconHome },
     { link: '', label: 'Pending', icon: IconReceipt2 },
+    { link: '', label: 'Groups', icon: IconDatabaseImport },
     { link: '', label: 'History', icon: IconCalendar },
-    { link: '', label: 'Databases', icon: IconDatabaseImport },
     { link: '', label: 'Profile', icon: IconUser },
     { link: '', label: 'Other Settings', icon: IconSettings },
 ];
@@ -54,15 +55,11 @@ export function NavbarSimple() {
             </div>
 
             <div className={classes.footer}>
-                <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-                    <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-                    <span>Change account</span>
-                </a>
-
-                <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-                    <IconLogout className={classes.linkIcon} stroke={1.5} />
-                    <span>Logout</span>
-                </a>
+                <UserButton />
+                {/*<a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>*/}
+                {/*    <IconLogout className={classes.linkIcon} stroke={1.5} />*/}
+                {/*    <span>Logout</span>*/}
+                {/*</a>*/}
             </div>
         </nav>
     );
