@@ -70,7 +70,7 @@ export default function ForgotPassword() {
                     <Alert
                       title={error}
                       color="red"
-                      icon={<IconAlertTriangle/>}
+                      icon={<IconAlertTriangle />}
                       onClose={() => setError(null)}
                     >
                     </Alert>
