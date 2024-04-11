@@ -43,7 +43,7 @@ export default function AuthenticationPage() {
         validate: {
             email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
             password: (val) => (val.length <= 6 ? 'Password should include at least 6 characters' : null),
-            name: (val) => (val.length < 2 ? 'Username should have at least 2 characters' : null),
+            name: (val) => (val.length < 1 ? 'Username should have at least 1 character1' : null),
         },
     });
     const router = useRouter();
@@ -128,7 +128,7 @@ export default function AuthenticationPage() {
                               placeholder="Your name"
                               value={form.values.name}
                               onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
-                              error={form.errors.password && 'Username should have at least 2 characters'}
+                              error={form.errors.name && 'Username should have at least 1 character'}
                               radius="md"
                             />
                         )}
