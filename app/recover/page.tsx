@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
     Paper,
@@ -15,18 +15,18 @@ import {
     rem, Alert, Affix,
 } from '@mantine/core';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation'
-import {IconAlertTriangle, IconArrowLeft, IconCheck} from '@tabler/icons-react';
+import { useRouter } from 'next/navigation';
+import { IconAlertTriangle, IconArrowLeft, IconCheck } from '@tabler/icons-react';
 import { useState } from 'react';
+import { sendPasswordResetEmail } from 'firebase/auth';
 import classes from './ForgotPassword.module.css';
 import { auth } from '../../firebase';
-import { sendPasswordResetEmail } from 'firebase/auth';
 
 export default function ForgotPassword() {
     const [email, setEmail] = useState('');
     const [showResetNotification, setShowResetNotification] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const router = useRouter()
+    const router = useRouter();
 
     const handleResetPassword = async () => {
         try {
@@ -37,9 +37,9 @@ export default function ForgotPassword() {
                 setShowResetNotification(false);
                 router.push('/login');
             }, 3000);
-        } catch (error) {
-            console.error('Error resetting password:', error);
-            setError(error.message);
+        } catch (error1) {
+            console.error('Error resetting password:', error1);
+            setError(error1.message);
         }
     };
     return (
@@ -54,42 +54,40 @@ export default function ForgotPassword() {
             {showResetNotification && (
                 <Affix position={{ bottom: 20, right: 20 }}>
                     <Notification
-                        title="Password Reset Email Sent"
-                        color="teal"
-                        icon={<IconCheck size={18} />}
-                        onClose={() => setShowResetNotification(false)}
-                        autoClose={5000}
+                      title="Password Reset Email Sent"
+                      color="teal"
+                      icon={<IconCheck size={18} />}
+                      onClose={() => setShowResetNotification(false)}
                     >
                         Please check your email to reset your password.
                     </Notification>
                 </Affix>
             )}
 
-
             <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
                 {error && (
 
                     <Alert
-                        title={error}
-                        color="red"
-                        icon={<IconAlertTriangle/>}
-                        onClose={() => setError(null)}
+                      title={error}
+                      color="red"
+                      icon={<IconAlertTriangle/>}
+                      onClose={() => setError(null)}
                     >
                     </Alert>
                 )}
                 <TextInput
-                    label="Your email"
-                    placeholder="me@expendmate.com"
-                    required
-                    value={email}
-                    onChange={(event) => setEmail(event.currentTarget.value)}
+                  label="Your email"
+                  placeholder="me@expendmate.com"
+                  required
+                  value={email}
+                  onChange={(event) => setEmail(event.currentTarget.value)}
                 />
                 <Group justify="space-between" mt="lg" className={classes.controls}>
                     <Anchor c="dimmed" size="sm" className={classes.control}>
                         <Center inline>
                             <IconArrowLeft
-                                style={{ width: rem(12), height: rem(12) }}
-                                stroke={1.5}
+                              style={{ width: rem(12), height: rem(12) }}
+                              stroke={1.5}
                             />
                             <Anchor component={Link} size="sm" href="/login" c="dimmed">
                                 Back to the login page
