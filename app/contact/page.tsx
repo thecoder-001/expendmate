@@ -1,16 +1,18 @@
 'use client';
 
-import { Welcome } from '@/components/Welcome/Welcome';
-import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
+import { Container, Title } from '@mantine/core';
 import { Footer } from '@/components/Footer/Footer';
 import { HeaderMenu } from '@/components/Header/Header';
+import { GetInTouch } from '@/components/Contact/GetInTouch';
 
 export default function HomePage() {
     return (
         <>
             <HeaderMenu />
-            <Welcome />
-            <ColorSchemeToggle />
+            <Container>
+                <Title order={1}>Contact our team</Title>
+                <GetInTouch />
+            </Container>
             <Footer />
         </>
     );
