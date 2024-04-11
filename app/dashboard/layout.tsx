@@ -8,6 +8,7 @@ import { IconWallet } from '@tabler/icons-react';
 import '@mantine/charts/styles.css';
 import DashboardSection from "@/components/DashboardSection/DashboardSection";
 import ProfileSection from "@/components/ProfileSection/ProfileSection";
+import {ColorSchemeToggle} from "@/components/ColorSchemeToggle/ColorSchemeToggle";
 
 export default function Shell({ children }: { children: any }) {
     const [opened, { toggle }] = useDisclosure();
@@ -20,9 +21,14 @@ export default function Shell({ children }: { children: any }) {
             padding="md"
         >
             <AppShell.Header>
-                <Group h="100%" px="md">
-                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                    <IconWallet size={30} /> ExpendMate
+                <Group justify="space-between" h="100%" px="md">
+                    <Group>
+                        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+                        <IconWallet size={30} /> ExpendMate
+                    </Group>
+                    <Group>
+                        <ColorSchemeToggle />
+                    </Group>
                 </Group>
             </AppShell.Header>
             <AppShell.Navbar p="md">

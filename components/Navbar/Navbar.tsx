@@ -20,7 +20,7 @@ const data = [
     { link: '', label: 'Groups', icon: IconDatabaseImport },
     { link: '', label: 'History', icon: IconCalendar },
     { link: '/dashboard/profile', label: 'Profile', icon: IconUser },
-    { link: '', label: 'Other Settings', icon: IconSettings },
+    { link: '/dashboard/other', label: 'Other Settings', icon: IconSettings },
 ];
 
 export function NavbarSimple() {

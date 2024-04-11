@@ -37,6 +37,6 @@ export default function DashboardSection() {
             </Grid>
             <Title order={4} size="h1">Current balance:</Title>
             <TableBalance />
-            <ColorSchemeToggle /></>
+        </>
     );
 }

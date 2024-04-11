@@ -1,15 +1,26 @@
 'use client';
 
-import { Button, Group, useMantineColorScheme } from '@mantine/core';
+import {Button, Group, rem, Switch, useMantineColorScheme, useMantineTheme} from '@mantine/core';
+import {IconMoonStars, IconSun} from "@tabler/icons-react";
 
 export function ColorSchemeToggle() {
-  const { setColorScheme } = useMantineColorScheme();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme({keepTransitions: true});
+    const theme = useMantineTheme();
 
-  return (
-    <Group justify="center" mt="xl">
-      <Button onClick={() => setColorScheme('light')}>Light</Button>
-      <Button onClick={() => setColorScheme('dark')}>Dark</Button>
-      <Button onClick={() => setColorScheme('auto')}>Auto</Button>
-    </Group>
-  );
+    const sunIcon = (
+        <IconSun
+            style={{ width: rem(16), height: rem(16) }}
+            stroke={2.5}
+            color={theme.colors.yellow[4]}
+        />
+    );
+    const moonIcon = (
+        <IconMoonStars
+            style={{ width: rem(16), height: rem(16) }}
+            stroke={2.5}
+            color={theme.colors.blue[6]}
+        />
+    );
+    // checked={colorScheme === 'dark'} -> hydration error
+    return <Switch size="lg" color="dark.4" onLabel={sunIcon} offLabel={moonIcon} onChange={toggleColorScheme} />;
 }
