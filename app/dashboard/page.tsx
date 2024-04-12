@@ -6,11 +6,11 @@ import { data2 } from '@/app/dashboard/_data2';
 import { data } from '@/app/dashboard/_data';
 import { TableBalance } from '@/components/Tables-temp/TableTemp';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
+import { InputModal } from '@/components/InputModal/InputModal';
 
 export default function DashboardSection() {
     return (
         <>
-            Main
             <Grid>
                 <Grid.Col span={6}>
                     <AreaChart
@@ -37,6 +37,7 @@ export default function DashboardSection() {
             </Grid>
             <Title order={4} size="h1">Current balance:</Title>
             <TableBalance />
+            <InputModal />
         </>
     );
 }

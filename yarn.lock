@@ -3260,17 +3260,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/dropzone@npm:^7.7.2":
+"@mantine/dates@npm:^7.7.2":
   version: 7.7.2
-  resolution: "@mantine/dropzone@npm:7.7.2"
+  resolution: "@mantine/dates@npm:7.7.2"
   dependencies:
-    react-dropzone-esm: "npm:15.0.1"
+    clsx: "npm:2.1.0"
   peerDependencies:
     "@mantine/core": 7.7.2
     "@mantine/hooks": 7.7.2
+    dayjs: ">=1.0.0"
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 10c0/834f3495bcb96dfef85f42512d04d1940dd41cd2f464df86780acd0260c06dc2010f4c1678015ad87af3d32e148d22c673090426bbaa584f61f27ecfeba3d9b2
+  checksum: 10c0/93789f9d49ce6cfee8b7007ac4b8a5e4f01d8fc958677e39da3558d017d69dd5b9a27d87e1d91dc97e9dcab3d6df55ca9799c2d0140525649858346a0df0f85d
+  languageName: node
+  linkType: hard
+
+"@mantine/dropzone@npm:7.7.1":
+  version: 7.7.1
+  resolution: "@mantine/dropzone@npm:7.7.1"
+  dependencies:
+    react-dropzone-esm: "npm:15.0.1"
+  peerDependencies:
+    "@mantine/core": 7.7.1
+    "@mantine/hooks": 7.7.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 10c0/6b9d43d5de63bc45ea76df0b3dec5a3c81cd9cce2586051cdcc843df7f3767bdf9b40ce0def65d64029750e1f467a424246ba225471c4e1173c9d27fd81b3599
   languageName: node
   linkType: hard
 
@@ -8399,6 +8414,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:^1.11.10":
+  version: 1.11.10
+  resolution: "dayjs@npm:1.11.10"
+  checksum: 10c0/4de9af50639d47df87f2e15fa36bb07e0f9ed1e9c52c6caa1482788ee9a384d668f1dbd00c54f82aaab163db07d61d2899384b8254da3a9184fc6deca080e2fe
+  languageName: node
+  linkType: hard
+
 "debounce@npm:^1.2.1":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -12866,7 +12888,8 @@ __metadata:
     "@mantine/carousel": "npm:7.7.1"
     "@mantine/charts": "npm:7.7.1"
     "@mantine/core": "npm:7.7.1"
-    "@mantine/dropzone": "npm:^7.7.2"
+    "@mantine/dates": "npm:^7.7.2"
+    "@mantine/dropzone": "npm:7.7.1"
     "@mantine/form": "npm:7.7.1"
     "@mantine/hooks": "npm:7.7.1"
     "@next/bundle-analyzer": "npm:^14.1.3"
@@ -12887,6 +12910,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^7.2.0"
     "@typescript-eslint/parser": "npm:^7.2.0"
     babel-loader: "npm:^9.1.3"
+    dayjs: "npm:^1.11.10"
     embla-carousel-react: "npm:^7.1.0"
     eslint: "npm:^8.57.0"
     eslint-config-airbnb: "npm:19.0.4"

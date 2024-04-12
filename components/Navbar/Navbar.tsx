@@ -16,9 +16,9 @@ import Link from "next/link";
 const data = [
     // { link: '', label: 'Notifications', icon: IconBellRinging },
     { link: '/dashboard', label: 'Dashboard', icon: IconHome },
-    { link: '', label: 'Pending', icon: IconReceipt2 },
+    { link: '/dashboard/pending', label: 'Pending', icon: IconReceipt2 },
     { link: '', label: 'Groups', icon: IconDatabaseImport },
-    { link: '', label: 'History', icon: IconCalendar },
+    { link: '/dashboard/history', label: 'History', icon: IconCalendar },
     { link: '/dashboard/profile', label: 'Profile', icon: IconUser },
     { link: '/dashboard/other', label: 'Other Settings', icon: IconSettings },
 ];
