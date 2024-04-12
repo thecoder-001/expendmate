@@ -5,23 +5,23 @@ import Link from 'next/link';
 import classes from './HeaderMenu.module.css';
 
 const links = [
-    { link: '/about', label: 'Features' },
+    { link: '/about', label: 'About' },
     {
-        link: '#1',
+        link: '/resources',
         label: 'Learn',
         links: [
-            { link: '/login', label: 'Resources' },
+            { link: '/resources', label: 'Resources' },
             { link: '/community', label: 'Community' },
             { link: '/blog', label: 'Blog' },
         ],
     },
-    { link: '/about', label: 'About' },
+    { link: '/contact', label: 'Contact us' },
     {
-        link: '#2',
+        link: '/faq',
         label: 'Support',
         links: [
             { link: '/faq', label: 'FAQ' },
-            { link: '/forums', label: 'Forums' },
+            { link: 'https://www.github.com/thecoder-001/expendmate/issues', label: 'Forums' },
         ],
     },
 ];
@@ -31,23 +31,21 @@ export function HeaderMenu() {
 
     const items = links.map((link) => {
         const menuItems = link.links?.map((item) => (
-            <Menu.Item key={item.link}>{item.label}</Menu.Item>
+            <Link href={item.link} key={item.link} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Menu.Item>{item.label}</Menu.Item>
+            </Link>
         ));
 
         if (menuItems) {
             return (
                 <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
                     <Menu.Target>
-                        <a
-                            href={link.link}
-                            className={classes.link}
-                            onClick={(event) => event.preventDefault()}
-                        >
+                        <Link href={link.link} style={{ textDecoration: 'none', color: 'inherit' }}>
                             <Center>
                                 <span className={classes.linkLabel}>{link.label}</span>
                                 <IconChevronDown size="0.9rem" stroke={1.5} />
                             </Center>
-                        </a>
+                        </Link>
                     </Menu.Target>
                     <Menu.Dropdown>{menuItems}</Menu.Dropdown>
                 </Menu>
@@ -55,14 +53,9 @@ export function HeaderMenu() {
         }
 
         return (
-            <a
-                key={link.label}
-                href={link.link}
-                className={classes.link}
-                onClick={(event) => event.preventDefault()}
-            >
+            <Link href={link.link} key={link.label} className={classes.link} style={{ textDecoration: 'none', color: 'inherit' }}>
                 {link.label}
-            </a>
+            </Link>
         );
     });
 
@@ -70,14 +63,15 @@ export function HeaderMenu() {
         <header className={classes.header}>
             <Container size="md">
                 <div className={classes.inner}>
-                    <IconWallet size={28} />
+                    <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}><IconWallet size={28} /></Link>
+                    {/*<IconWallet size={28} />*/}
                     <Group gap={5} visibleFrom="sm">
                         {items}
                     </Group>
                     <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
                     <Group visibleFrom="sm">
-                        <Link href='/login'><Button variant="default">Log in</Button></Link>
-                        <Link href='/login'><Button>Sign up</Button></Link>
+                        <Link href="/login" style={{ textDecoration: 'none', color: 'inherit' }}><Button variant="default">Log in</Button></Link>
+                        <Link href="/login" style={{ textDecoration: 'none', color: 'inherit' }}><Button>Sign up</Button></Link>
                     </Group>
                 </div>
             </Container>
