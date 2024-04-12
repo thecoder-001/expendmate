@@ -2,12 +2,14 @@
 
 import {Avatar, Badge, Table, Group, Text, Select, rem, Menu, ActionIcon} from '@mantine/core';
 import {IconDots, IconMessages, IconNote, IconPencil, IconReportAnalytics, IconTrash} from "@tabler/icons-react";
+import { Sparkline } from '@mantine/charts';
 
 const data = [
     {
         avatar:
             'https://avatars.githubusercontent.com/u/25097841?v=4',
         name: 'Rob',
+        trend:[10, 20, 20, -40, 40, 10, 10],
         email: 'rob@gmail.com',
         relation: 'Roommate',
         balance: '+₹10',
@@ -17,6 +19,7 @@ const data = [
         avatar:
             '',
         name: 'Amy',
+        trend:[300, 20, 240, -40, 40, 10, 800],
         email: 'amy@gmail.com',
         relation: 'Friend',
         balance: '+₹800',
@@ -26,6 +29,7 @@ const data = [
         avatar:
             '',
         name: 'Aman',
+        trend:[210, 20, 240, -40, 84, 10, -94],
         email: 'aman@yahoo.com',
         relation: 'Family',
         balance: '-₹94',
@@ -35,6 +39,7 @@ const data = [
         avatar:
             '',
         name: 'Bill',
+        trend:[-900, 20, 570, 0, 40, 10, 21],
         email: 'bill@gmail.com',
         relation: 'Roommate',
         balance: '+₹32',
@@ -44,6 +49,7 @@ const data = [
         avatar:
             '',
         name: 'Mike',
+        trend:[600, 20, 20, -40, 80, 10, -120],
         email: 'mike@gmail.com',
         relation: 'Friend',
         balance: '-₹120',
@@ -77,6 +83,18 @@ export default function UsersrelationsTable() {
                     variant="unstyled"
                     allowDeselect={false}
                 />
+            </Table.Td>
+            <Table.Td>
+                    <Sparkline
+                        w={100}
+                        h={30}
+                        data={item.trend}
+                        curveType="linear"
+                        color="blue"
+                        fillOpacity={0.6}
+                        strokeWidth={2}
+                        trendColors={{ positive: 'teal.6', negative: 'red.6', neutral: 'gray.5' }}
+                    />
             </Table.Td>
             <Table.Td><Text fz="sm">{item.balance}</Text></Table.Td>
             <Table.Td>
@@ -146,8 +164,10 @@ export default function UsersrelationsTable() {
                     <Table.Tr>
                         <Table.Th>Employee</Table.Th>
                         <Table.Th>Relation</Table.Th>
+                        <Table.Th>Trend</Table.Th>
                         <Table.Th>Balance</Table.Th>
                         <Table.Th>Status</Table.Th>
+                        <Table.Th></Table.Th>
                     </Table.Tr>
                 </Table.Thead>
                 <Table.Tbody>{rows}</Table.Tbody>

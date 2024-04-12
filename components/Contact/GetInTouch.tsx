@@ -16,7 +16,7 @@ export function GetInTouch() {
         validate: {
             email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
             name: (val) => (val.length < 1 ? 'Username should have at least 1 character1' : null),
-            message: (val) => (val.length < 1 ? 'Please enter a subject' : null),
+            subject: (val) => (val.length < 1 ? 'Please enter a subject' : null),
             message: (val) => (val.length < 1 ? 'Please enter your review' : null),
         },
     });
@@ -32,24 +32,46 @@ export function GetInTouch() {
                 </div>
 
                 {/*<form className={classes.form} onSubmit={(event) => event.preventDefault()}>*/}
-                <form className={classes.form} onSubmit={form.onSubmit()}>
+                <form className={classes.form} onSubmit={form.onSubmit((values) => console.log(values))}>
                     <Text fz="lg" fw={700} className={classes.title}>
                         Get in touch
                     </Text>
 
                     <div className={classes.fields}>
                         <SimpleGrid cols={{base: 1, sm: 2}}>
-                            <TextInput label="Your name" placeholder="Your name"/>
-                            <TextInput label="Your email" placeholder="hello@mantine.dev" required/>
+                            <TextInput
+                                label="Your name"
+                                placeholder="Your name"
+                                value={form.values.name}
+                                onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
+                                error={form.errors.name && 'Please enter your name'}
+                            />
+                            <TextInput
+                                label="Your email"
+                                placeholder="me@gmail.com"
+                                value={form.values.email}
+                                onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
+                                error={form.errors.email && 'Invalid email'}
+                                required/>
                         </SimpleGrid>
 
-                        <TextInput mt="md" label="Subject" placeholder="Subject" required/>
+                        <TextInput
+                            mt="md"
+                            label="Subject"
+                            placeholder="Subject"
+                            value={form.values.subject}
+                            onChange={(event) => form.setFieldValue('subject', event.currentTarget.value)}
+                            error={form.errors.subject && 'Please enter a subject'}
+                            required/>
 
                         <Textarea
                             mt="md"
                             label="Your message"
                             placeholder="Please include all relevant information"
                             minRows={3}
+                            value={form.values.message}
+                            onChange={(event) => form.setFieldValue('message', event.currentTarget.value)}
+                            error={form.errors.message && 'Please enter a message'}
                         />
 
                         <Group justify="flex-end" mt="md">
