@@ -6,7 +6,7 @@ import {
     IconSettings,
     IconUser,
     IconDatabaseImport,
-    IconReceipt2,
+    IconReceipt2, IconUsers,
 } from '@tabler/icons-react';
 import { usePathname, useRouter } from 'next/navigation';
 import classes from './NavbarSimple.module.css';
@@ -16,8 +16,8 @@ import Link from "next/link";
 const data = [
     // { link: '', label: 'Notifications', icon: IconBellRinging },
     { link: '/dashboard', label: 'Dashboard', icon: IconHome },
-    { link: '/dashboard/pending', label: 'Pending', icon: IconReceipt2 },
-    { link: '', label: 'Groups', icon: IconDatabaseImport },
+    { link: '/dashboard/relations', label: 'Relations', icon: IconUsers },
+    { link: '', label: 'Groups', icon: IconReceipt2 },
     { link: '/dashboard/history', label: 'History', icon: IconCalendar },
     { link: '/dashboard/profile', label: 'Profile', icon: IconUser },
     { link: '/dashboard/other', label: 'Other Settings', icon: IconSettings },
