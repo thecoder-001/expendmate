@@ -72,7 +72,7 @@ export function UserButton() {
                 </UnstyledButton>
             </Menu.Target>
             <Menu.Dropdown>
-                <Menu.Item
+                <Menu.Item component="a" href="/dashboard/other"
                   leftSection={<IconSettings style={{ width: rem(14), height: rem(14) }} />}>
                     Settings
                 </Menu.Item>

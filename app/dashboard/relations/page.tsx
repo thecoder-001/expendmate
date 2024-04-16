@@ -3,6 +3,7 @@
 import {Avatar, Badge, Table, Group, Text, Select, rem, Menu, ActionIcon} from '@mantine/core';
 import {IconDots, IconMessages, IconNote, IconPencil, IconReportAnalytics, IconTrash} from "@tabler/icons-react";
 import { Sparkline } from '@mantine/charts';
+import {RelationInputModal} from "@/components/RelationInputModal/RelationInputModal";
 
 const data = [
     {
@@ -158,20 +159,23 @@ export default function UsersrelationsTable() {
     ));
 
     return (
-        <Table.ScrollContainer minWidth={800}>
-            <Table verticalSpacing="sm">
-                <Table.Thead>
-                    <Table.Tr>
-                        <Table.Th>Employee</Table.Th>
-                        <Table.Th>Relation</Table.Th>
-                        <Table.Th>Trend</Table.Th>
-                        <Table.Th>Balance</Table.Th>
-                        <Table.Th>Status</Table.Th>
-                        <Table.Th></Table.Th>
-                    </Table.Tr>
-                </Table.Thead>
-                <Table.Tbody>{rows}</Table.Tbody>
-            </Table>
-        </Table.ScrollContainer>
+        <>
+            <Table.ScrollContainer minWidth={800}>
+                <Table verticalSpacing="sm">
+                    <Table.Thead>
+                        <Table.Tr>
+                            <Table.Th>Employee</Table.Th>
+                            <Table.Th>Relation</Table.Th>
+                            <Table.Th>Trend</Table.Th>
+                            <Table.Th>Balance</Table.Th>
+                            <Table.Th>Status</Table.Th>
+                            <Table.Th></Table.Th>
+                        </Table.Tr>
+                    </Table.Thead>
+                    <Table.Tbody>{rows}</Table.Tbody>
+                </Table>
+            </Table.ScrollContainer>
+            <RelationInputModal />
+        </>
     );
 }

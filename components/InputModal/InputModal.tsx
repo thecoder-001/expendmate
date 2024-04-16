@@ -12,6 +12,9 @@ import {
     MultiSelect, Group
 } from '@mantine/core';
 import {IconSquareRoundedPlus} from "@tabler/icons-react";
+import { DateTimePicker } from '@mantine/dates';
+import '@mantine/dates/styles.css';
+
 import classes from "@/app/recover/ForgotPassword.module.css";
 
 export function InputModal() {
@@ -64,6 +67,12 @@ export function InputModal() {
                     placeholder="Pick value"
                     data={['Alex', 'John', 'Aman', 'Amy']}
                 />
+                    <DateTimePicker
+                        clearable
+                        defaultValue={new Date()}
+                        label="Pick date and time"
+                        placeholder="Pick date and time"
+                    />
                 <Group justify="space-between" mt="lg" className={classes.controls}>
                     <Button variant="filled" size="md" radius="md" onClick={close}>Submit</Button>
                 </Group>
@@ -71,7 +80,10 @@ export function InputModal() {
             </Modal>
 
             <Affix position={{ bottom: 20, right: 20 }}>
-                <ActionIcon onClick={open} autoContrast aria-label="autoContrast action icon" size="xl" radius="lg" color="lime.4"      style={{
+                <ActionIcon onClick={open}
+                    autoContrast aria-label="autoContrast action icon"
+                    size="xl" radius="lg" color="lime.4"
+                    style={{
                     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1)'
                 }}>
                     <IconSquareRoundedPlus size={20} />

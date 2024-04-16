@@ -63,7 +63,6 @@ const HistoryPage = () => {
             <Group gap="xl">
                 <div>
                     <Calendar
-                        fullWidth
                         styles={{
                             day: { height: 50, fontSize: 14 },
                         }}
